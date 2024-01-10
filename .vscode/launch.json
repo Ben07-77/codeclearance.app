@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "pwa-chrome",
+        "request": "launch",
+        "name": "Launch Chrome",
+        "url": "http://localhost:8080",  // Use a port that is not in use
+        "webRoot": "${workspaceFolder}"
+      }
+    ]
+  }
+  

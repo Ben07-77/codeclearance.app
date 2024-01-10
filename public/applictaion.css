@@ -1,0 +1,321 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;1,100;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100&display=swap');
+body{
+    background: linear-gradient(to bottom, #fffffff0, #fffffff0), url(./tumblr_77c9c5851d894930ec22b6ec95a57c71_f5a04dc5_400.gif);
+}
+
+.Logo{
+    color: black;
+}
+.none{
+    background: transparent;
+}
+#checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    position: relative;
+    background-color: #fff; /* Default background color */
+    cursor: pointer;
+}
+
+#checkbox.checked::before {
+    content: '\2713';
+    font-size: 14px;
+    background: #8BE58E; /* Active state background color */
+    border-radius: 2px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#checkbox1 {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    position: relative;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#checkbox1.checked::before {
+    content: '\2713'; /* Checkmark Unicode character */
+    font-size: 14px;
+    background: #8BE58E 100%;
+    border-radius: 2px;
+    
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/*Dark Mode css*/
+input.night{
+    background: transparent;
+    color: #8BE58E;
+    border-color: #8BE58E;
+}
+textarea.night{
+    background: transparent;
+    color: #8BE58E;
+    border-color: #8BE58E;
+}
+label{
+    position: absolute;
+    width: 45px;
+    height: 22px;
+    right: 20px;
+    top: 20px;
+    border-radius: 20px;
+}
+label::before{
+    margin: 5px auto;
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    left: 40px;
+    top: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: black;
+    transition: 0.4s ease;
+}
+
+label.active::before{
+    margin: 5px auto;
+    background: rgb(255, 230, 0);
+}
+body:hover .padlock{
+    padding: 0;
+    transition: all 0.5s ease;
+}
+span.night{
+    color: #8BE58E;
+    transition: 0.4s ease;
+}
+div.night{
+    color: #8BE58E;
+    transition: 0.4s ease;
+}
+ul.night{
+    color: #8BE58E;
+    transition: 0.4s ease;
+    
+}
+i.night{
+    color: #71c672;
+    transition: 0.4s ease;
+}
+a{
+    color: green ;
+}
+section.night{
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.769),rgba(0, 0, 0, 0.792)), url(./CreativePlayfulHarrierhawk-max-1mb.gif);
+    color: #8BE58E;
+    transition: 0.4s ease;
+}
+div.black{
+    background: #1F2B1F;
+    color: #8BE58E;
+}
+section.greenNight{
+    background: #1F2B1F;
+    color: #8BE58E;
+    transition: 0.4s ease;
+}
+nav.night{
+    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.618),rgba(0, 0, 0, 0.634)), url(./CreativePlayfulHarrierhawk-max-1mb.gif);
+    color: white;
+    transition: 0.4s ease;
+}
+@media(max-width: 580px) {
+    .word{
+        display: none ;
+    }
+    .copy-right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/*body:hover .navbar{
+    background: url(./CreativePlayfulHarrierhawk-max-1mb.gif);
+}
+body:hover .green2{
+    color: green;
+    transition: all 0.4s ease;
+}
+/*body:hover #home{
+    color: white;
+    transition: all 0.4s ease;
+}
+body:hover #services{
+    color: white;
+}
+body:hover{
+    background-image: url(./CreativePlayfulHarrierhawk-max-1mb.gif) ;
+}
+body:hover .nav-link{
+    color: green ;
+}
+body:hover .black{
+    color: white;
+    transition: all 0.4s ease;
+}
+body:hover .h3{
+    color:#8BE58E;
+    transition: all 0.4s ease;   
+}
+body:hover .navbar-nav.nav-link{
+    color: #FF0000; 
+}
+body:hover .shield{
+    color:rgb(37, 96, 45);
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+}
+
+
+body:hover .bg-base{
+    background: rgb(78, 137, 86);
+    transition: all 0.3s ease;
+}
+
+.profile-box:hover{
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+.profile-box:hover .bg-base{
+    background: rgb(37, 96, 45);
+}
+.profile-box:hover .i{
+    border: 2px solid rgba(255, 255, 255, 0.551);
+    color: gold;
+    border-radius: 50%;
+    padding: 10px;
+    transition: all 0.05s ease;
+}
+.profile-box:hover .text-content {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5 ease;
+  }
+  .link-custom::after:hover{
+    width: 100%;
+    height: 4px;
+    width: 1px;
+    background-color: blue;
+}
+*/
+
+.navbar{
+    background: var(--grey-1, #F9F9FA);
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(18px);
+}
+.link-custom{
+    font-weight: 200;
+    text-transform: uppercase;
+    color: rgba(0, 109, 199, 0.822) ;
+}
+.link-custom::after{
+    content: "";
+    height: 4px;
+    width: 1px;
+    background-color: blue;
+    left: 0;
+    top: 110%;
+    transition: all 0.4s ;
+}
+.navbar .nav-link.active{
+    color: green ;
+    font-weight: bold;
+}
+.h3{
+    color: black;
+}
+.Logo:hover{
+    color: #71c672;
+    transition: all 0.4s ;
+}
+.black{
+    color: green;
+}
+.navbar{
+    color: rgb(237, 251, 255);
+    margin-bottom: 200px;
+}
+.full-height{
+    min-height: 100vh;
+    height: 100% ;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 80px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.123) ;
+    color: black;
+
+}
+.padlock{
+    padding: 20px;
+}
+.padlock:hover{
+    color: rgba(255, 217, 0, 0.552);
+}
+.shield{
+    color: rgba(0, 109, 199, 0.549);
+}
+.bg-base{
+    background:  rgba(0, 109, 199, 0.14);
+}
+.sub{
+    margin: auto;
+    font-size:medium;
+
+}
+
+.text-container {
+    overflow: hidden;
+  }
+  
+  .text-content {
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.3s ease;
+  }
+
+/*Dropdwn css*/
+.read-more {
+    width: 140px;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: transparent;
+    border: 0px;
+}
+#more {
+    display: none;
+}
+.read-more:hover{
+    color: #8be58e7c;
+}
+
+
+  
+  
