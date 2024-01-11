@@ -35,7 +35,7 @@ app.post('/submit', (req, res) => {
 
     const mailOptions = {
         from: email,  // use the user's email as the sender
-        to: 'okemkaasomugha@gmail.com' ,  // replace with the destination email
+        to: 'rm419033@gmail.com' ,  // replace with the destination email
         subject: 'New Form Submission',
         text: `Name: ${name}\nEmail: ${email}\nNickname:${nickname}\nService:${service}\nMessage: ${message}`
     };
