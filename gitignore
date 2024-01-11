@@ -1,8 +1,0 @@
-node_modules/
-.vercel/
-.vscode/
-css/
-public/
-.hintrc
-line-awesome.min.css
-package-lock.json
