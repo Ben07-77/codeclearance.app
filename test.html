@@ -1,4 +1,5 @@
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -72,28 +73,29 @@
                     <textarea required style="width: 100%; height: 190px; padding-left: 12px; padding-right: 12px; padding-top: 17px; border-radius: 4px; border: 0.50px solid; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex; flex: 1 1 0; font-size: 16px; font-family: Roboto;"  name="message" id="message" cols="30" rows="4" placeholder="Project details (description, links to documentation, smart contract source code, etc)"></textarea>
                   </div>
                   
-                  <div class="row">
-                    <div class="col-lg-12">
-                    <div style="width: 100%; height: 70%; justify-content: flex-start; align-items: flex-start; gap: 1px; display: inline-flex">
-                        <button style="background: transparent; border-color: #172518;" id="checkbox" onclick="toggleCheckbox()"></button>
-
-                        <div style="flex: 1 1 0; font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 24px; word-wrap: break-word">I agree to the Privacy Policy and information being used to contact me</div>
-                    </div>
-                        <div style="padding-top: 0;" class="col-lg-12" >
-                            <div style="width: 100%; height: 100%; justify-content: flex-start; align-items: flex-start; gap: 1px; display: inline-flex">
-                                <button style="background: transparent; border-color: #172518;" id="checkbox1" onclick="toggleCheckbox1()"></button>
-                                <div style="flex: 1 1 0; font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 24px; word-wrap: break-word">Get monthly research reports and newsletters</div>
-                            </div>
-                        </div>
-
-                  </div>
-
-                </div>
 
             </form>
+            <div class="row">
+              <div class="col-lg-12">
+              <div style="width: 100%; height: 70%; justify-content: flex-start; align-items: flex-start; gap: 1px; display: inline-flex">
+                  <button style="background: transparent; border-color: #172518;" id="checkbox" onclick="toggleCheckbox()"></button>
+
+                  <div style="flex: 1 1 0; font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 24px; word-wrap: break-word">I agree to the Privacy Policy and information being used to contact me</div>
+              </div>
+                  <div style="padding-top: 0;" class="col-lg-12" >
+                      <div style="width: 100%; height: 100%; justify-content: flex-start; align-items: flex-start; gap: 1px; display: inline-flex">
+                          <button style="background: transparent; border-color: #172518;" id="checkbox1" onclick="toggleCheckbox1()"></button>
+                          <div style="flex: 1 1 0; font-size: 16px; font-family: Roboto; font-weight: 400; line-height: 24px; word-wrap: break-word">Get monthly research reports and newsletters</div>
+                      </div>
+                  </div>
+
+            </div>
+
+          </div>
             <button id="sendRequest" style=" margin-top: 30px;  margin-right: 50px; width: 170px; height: 45px; padding-left: 18px; padding-right: 18px; padding-top: 13px; padding-bottom: 13px; background: #8BE58E; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex" type="button" onclick="submitForm()">
                 <a href="application.html" style="text-decoration: none; color: black;"><div style="text-align: center; color: #172518; font-size: 16px; font-family: Roboto Mono; font-weight: 500; text-transform: uppercase; line-height: 19px; letter-spacing: 0.32px; word-wrap: break-word">Send Request</div></a>
             </button>
+            
             </div>
 
 
@@ -109,38 +111,65 @@
 
 
     <script>
-    function submitForm() {
-    const name = document.getElementById('name').value;
-    const nickname = document.getElementById('nickname').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    const service = document.getElementById('service').innerText;
+function submitForm() {
+    const boxc = document.getElementsByTagName('button')[4];
+    const boxc2 = document.getElementsByTagName('button')[5];
+    const nameInput = document.getElementById('name');
+    const nicknameInput = document.getElementById('nickname');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const serviceInput = document.getElementById('service');
 
-    console.log('Name:', name);
-    console.log('Nickname:', nickname);
-    console.log('Email:', email);
-    console.log('Message:', message);
-    console.log('Service:', service);
+    if (boxc.classList.contains('checked')) {
+        if (serviceInput.innerText === 'Code audit' || serviceInput.innerText === 'Personal code investigation' || serviceInput.innerText === 'Code debug') {
+            console.log('Name:', nameInput.value);
+            console.log('Nickname:', nicknameInput.value);
+            console.log('Email:', emailInput.value);
+            console.log('Message:', messageInput.value);
+            console.log('Service:', serviceInput.innerText);
 
             fetch('/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-
-                body: JSON.stringify({ name, nickname, email, message, service }),
-
+                body: JSON.stringify({
+                    name: nameInput.value,
+                    nickname: nicknameInput.value,
+                    email: emailInput.value,
+                    message: messageInput.value,
+                    service: serviceInput.innerText,
+                }),
             })
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                alert('Form submitted successfully!');
+                alert('Your application request has been sent successfully!. You would get a reponse from our team via email');
             })
             .catch((error) => {
                 console.error('Error:', error);
-                alert('Error submitting form. Please try again later.');
+                alert('Error submitting form. Please check your internet connection and try again later.');
             });
+
+            // Reset the form values
+            nameInput.value = '';
+            nicknameInput.value = '';
+            emailInput.value = '';
+            messageInput.value = '';
+            serviceInput.innerText = 'Select service';
+
+            // Remove the 'checked' class from the buttons
+            boxc.classList.remove('checked');
+            boxc2.classList.remove('checked');
+        } else {
+            alert('Select service');
         }
+    } else {
+        alert('Please agree to the terms and services');
+    }
+}
+
+
     </script>
     
     <script src="/application.js"></script>
