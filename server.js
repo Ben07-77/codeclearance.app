@@ -10,20 +10,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/fonts', express.static(path.join(__dirname, 'public/fonts'), { type: 'font/woff2' }));
 
-// Serve static files (CSS, JavaScript, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-// Your Nodemailer configuration using your email credentials
+// Nodemailer configuration with email credentials
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     auth: {
-        user: 'gamershubx902@gmail.com', // replace with your ProtonMail address
-        pass: 'mwkx sksl egtl xtdi'             // replace with your ProtonMail password
+        user: 'gamershubx902@gmail.com',
+        pass: 'xfgl bbaj kclq ftqv'
     },
-    // Increase the timeout (in milliseconds)
     connectionTimeout: 30000,
     greetingTimeout: 30000,
     socketTimeout: 30000,
@@ -31,12 +29,12 @@ const transporter = nodemailer.createTransport({
 
 // Handle form submissions
 app.post('/submit', (req, res) => {
-    const { name, nickname, email, message, service } = req.body;
+    const {  name, nickname, email, message, service } = req.body;
 
     const mailOptions = {
-        from: email,  // use the user's email as the sender
-        to: 'rm419033@gmail.com' ,  // replace with the destination email
-        subject: 'New Form Submission',
+        from: email,
+        to: 'rm419033@gmail.com' ,  //destination email
+        subject: 'Code clearance application',
         text: `Name: ${name}\nEmail: ${email}\nNickname:${nickname}\nService:${service}\nMessage: ${message}`
     };
 
@@ -50,7 +48,7 @@ app.post('/submit', (req, res) => {
     });
 });
 
-// Serve the HTML file
+
 app.get('/test.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'test.html'));
 });
@@ -59,8 +57,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/success.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'success.html'));
+});
 
-// Start the server
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
