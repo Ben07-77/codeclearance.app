@@ -93,7 +93,7 @@
 
           </div>
             <button id="sendRequest" style=" margin-top: 30px;  margin-right: 50px; width: 170px; height: 45px; padding-left: 18px; padding-right: 18px; padding-top: 13px; padding-bottom: 13px; background: #8BE58E; justify-content: flex-start; align-items: flex-start; gap: 8px; display: inline-flex" type="button" onclick="submitForm()">
-                <a href="application.html" style="text-decoration: none; color: black;"><div style="text-align: center; color: #172518; font-size: 16px; font-family: Roboto Mono; font-weight: 500; text-transform: uppercase; line-height: 19px; letter-spacing: 0.32px; word-wrap: break-word">Send Request</div></a>
+                <a style="text-decoration: none; color: black;"><div style="text-align: center; color: #172518; font-size: 16px; font-family: Roboto Mono; font-weight: 500; text-transform: uppercase; line-height: 19px; letter-spacing: 0.32px; word-wrap: break-word">Send Request</div></a>
             </button>
             
             </div>
@@ -111,6 +111,10 @@
 
 
     <script>
+
+function loadNewPage() {
+            window.location.href = 'success.html';
+        }
 function submitForm() {
     const boxc = document.getElementsByTagName('button')[4];
     const boxc2 = document.getElementsByTagName('button')[5];
@@ -132,7 +136,7 @@ function submitForm() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                },
+                }, 
                 body: JSON.stringify({
                     name: nameInput.value,
                     nickname: nicknameInput.value,
@@ -144,19 +148,20 @@ function submitForm() {
             .then(response => response.json())
             .then(data => {
                 console.log('Success:', data);
-                alert('Your application request has been sent successfully!. You would get a reponse from our team via email');
+                alert('Sent!');
+                loadNewPage()
+                            // Reset the form values
+            nameInput.value = '';
+            nicknameInput.value = '';
+            emailInput.value = '';
+            messageInput.value = '';
+            serviceInput.innerText = 'Select service';
             })
             .catch((error) => {
                 console.error('Error:', error);
                 alert('Error submitting form. Please check your internet connection and try again later.');
             });
 
-            // Reset the form values
-            nameInput.value = '';
-            nicknameInput.value = '';
-            emailInput.value = '';
-            messageInput.value = '';
-            serviceInput.innerText = 'Select service';
 
             // Remove the 'checked' class from the buttons
             boxc.classList.remove('checked');
