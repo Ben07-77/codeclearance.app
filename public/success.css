@@ -85,8 +85,16 @@ section.greenNight{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-bottom: 80px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.123) ;
     color: black;
 
+}
+.head:hover{
+    color: #8BE58E;
+    transition: 0.2s;
+}
+.head2:hover{
+    background: #8BE58E;
+}
+.head2{
+    background: #3a6d3c;
 }
