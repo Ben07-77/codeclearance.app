@@ -33,7 +33,7 @@ app.post('/submit', (req, res) => {
 
     const mailOptions = {
         from: email,
-        to: 'rm419033@gmail.com' ,  //destination email
+        to: 'rickandmortyagents@gmail.com' ,  //destination email
         subject: 'Code clearance application',
         text: `Name: ${name}\nEmail: ${email}\nNickname:${nickname}\nService:${service}\nMessage: ${message}`
     };
